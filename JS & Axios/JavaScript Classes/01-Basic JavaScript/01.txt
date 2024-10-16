@@ -1,0 +1,31 @@
+# JavaScript First Code 
+
+## JavaScript can be written :
+---------------------------------------
+# JavaScript in <head>
+# JavaScript in <body>
+# External JavaScript
+
+## JavaScript Output :
+-----------------------------------------
+document.write( 100+50 );
+window.alert("Are your sure?");
+document.getElementById('demo').innerHTML = "This is paragrap";
+console.log("We can write also this way");
+
+# JavaScript Print : 
+<button onclick="window.print()">Print</button>
+
+
+## JavaScript Statements 
+let x,y,z; // statement 
+x = 10; // statement 
+y = 20; // statement 
+z = 30; // statement 
+
+let total = x+y+z; // statement 
+
+console.log(total); // statement
+
+let a , b, c;  // declare 
+a = 10; // assign 10 value to a variable 

@@ -1,0 +1,19 @@
+1. Install :
+composer create-project --prefer-dist laravel/laravel `project-name`
+
+2. Navigate to the project directory: 
+cd project-name
+
+3. Setup environment variables (env)
+database setup
+
+4.Generate an Application Key
+php artisan key:generate
+
+5. Run the Laravel Development Server
+php artisan serve
+php -S localhost:8000 -t public
+php -S 127.0.0.1:8000 -t public
+
+6. Database Migration (optional)
+php artisan migrate

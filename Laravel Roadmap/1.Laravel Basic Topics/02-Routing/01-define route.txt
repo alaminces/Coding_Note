@@ -1,0 +1,81 @@
+# Defining Routes for Different HTTP Methods :
+Laravel routing is one of the core features of the framework, which allows you to define and handle various HTTP requests (GET, POST, PUT, DELETE, etc.). Here's an overview of how routing works in Laravel.
+
+# GET Request:
+Route::get('/about', function () {
+    return "This is the About page.";
+});
+
+# POST Request:
+Route::post('/submit', function () {
+    return "Form submitted!";
+});
+
+# PUT Request:
+Route::put('/update', function () {
+    return "Resource updated!";
+});
+
+
+# DELETE Request:
+Route::delete('/delete', function () {
+    return "Resource deleted!";
+});
+
+
+===================================
+>>> Route Parameters <<<
+===================================
+# Required Parameter:
+Route::get('/user/{id}', function ($id) {
+    return "User ID: " . $id;
+});
+
+# Optional Parameter:
+Route::get('/user/{id?}', function ($id = null) {
+    return "User ID: " . ($id ?? 'No ID provided');
+});
+
+===================================
+>>> Named Routes <<<
+===================================
+Route::get('/user/profile', function () {
+    return "User Profile";
+})->name('profile');
+
+$url = route('profile');  // Generates the URL for the profile route
+
+
+===================================
+>>> Route Grouping <<<
+===================================
+# Route Prefix:
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return "Admin Dashboard";
+    });
+    Route::get('/settings', function () {
+        return "Admin Settings";
+    });
+});
+
+
+# Route Middleware: 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return "Authenticated Dashboard";
+    });
+});
+
+
+# Middleware + Prefix + Grouping Route :
+Route::group(['middleware'=>'auth','prefix'=>'admin'], function() {
+    Route::get('/dashboard', function() {
+        return "Authenticated Dashboard";
+    });
+});
+
+Route::middleware('auth')->prefix('admin')->group(function() {
+	// 
+});
+

@@ -1,0 +1,68 @@
+# Basic Controllers
+php artisan make:controller UserController
+
+# Route define 
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/users/create', [UserController::class, 'create']);
+Route::post('/users', [UserController::class, 'store']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/users/{id}/edit', [UserController::class, 'edit']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+
+# Resource Controllers
+php artisan make:controller UserController --resource
+php artisan make:controller PostController -r
+
+# Route define 
+Route::resource('users', UserController::class);
+
+# Route names are :
+users.index 
+users.create 
+users.store 
+users.show 
+users.edit 
+users.update 
+users.destroy 
+
+
+# Passing Data to Views from Controllers
+// Compact method
+return view('users.show', compact('post'));
+
+// With method
+return view('users.show')->with('post', $post);
+return view('users.show')->with([
+	'data_1'  => 'value 1',
+	'data_2' => 'value 2'
+]);
+
+// Direct array
+return view('users.show', ['post' => $post]);
+
+
+# Middleware in Controllers
+class UserController extends Controller
+{
+    public function __construct()
+    {
+		// Assigning to a controller:
+        $this->middleware('auth');
+		// Assigning to specific methods:
+		$this->middleware('auth')->only('index','show');
+    }
+}
+
+
+
+# Creating a Single Action Controller
+php artisan make:controller SingleActionController --invokable
+
+Route::get('/single-action', SingleActionController::class);
+
+
+
+
+

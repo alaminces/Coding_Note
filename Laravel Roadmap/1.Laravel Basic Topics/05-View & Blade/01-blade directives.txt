@@ -1,0 +1,94 @@
+=================
+>>> Echoing Data <<<
+=================
+# Escaped Output
+{{ $variable }}
+
+# Unescaped Output:
+{!! $variable !!}
+
+=================
+>>> Conditionals <<<
+=================
+@if ($user->isAdmin())
+    <p>Welcome, Admin!</p>
+@elseif ($user->isEditor())
+    <p>Welcome, Editor!</p>
+@else
+    <p>Welcome, User!</p>
+@endif
+--------------------------------------
+@unless ($user->isAdmin())
+    <p>You are not an admin.</p>
+@endunless
+--------------------------------------
+@isset($name)
+    <p>Name is set: {{ $name }}</p>
+@endisset
+--------------------------------------
+@empty($data)
+    <p>No data available.</p>
+@endempty
+--------------------------------------
+@for ($i = 0; $i < 10; $i++)
+    <p>Index: {{ $i }}</p>
+@endfor
+--------------------------------------
+@foreach ($users as $user)
+    <p>{{ $user->name }}</p>
+@endforeach
+--------------------------------------
+@forelse ($posts as $post)
+    <p>{{ $post->title }}</p>
+@empty
+    <p>No posts found.</p>
+@endforelse
+--------------------------------------
+@while ($count < 5)
+    <p>Count: {{ $count }}</p>
+    <?php $count++; ?>
+@endwhile
+--------------------------------------
+@switch($role)
+    @case('admin')
+        <p>Welcome, Admin!</p>
+        @break
+
+    @case('editor')
+        <p>Welcome, Editor!</p>
+        @break
+
+    @default
+        <p>Welcome, User!</p>
+@endswitch
+
+# Template Inheritance
+
+@extends('layouts.master')
+@yield('content')
+@section('content')
+    <h1>Welcome to My Website</h1>
+@endsection
+@include('partials.header')
+
+@auth
+    <p>Welcome back, {{ Auth::user()->name }}!</p>
+@endauth
+
+@guest
+    <p>Welcome, guest!</p>
+@endguest
+
+<form method="POST" action="/submit">
+    @csrf
+    <!-- Form fields -->
+</form>
+
+{{-- Comment --}}
+
+@yield('title')
+
+
+
+
+

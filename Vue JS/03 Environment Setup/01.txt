@@ -1,0 +1,63 @@
+Vue js is setup 2 ways
+1. CDN
+2. CLI
+
+
+Class 01 : 
+=====================================
+# Using Vue from CDN
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+# Using vue by download
+<script src="js/vue.global.js"></script>
+
+# index.html :
+--------------------------------------
+ <div id="app">{{ msg }}</div>
+ 
+# app.js
+--------------------------------
+ var app = Vue.createApp({
+  data() {
+    return {
+      msg : 'Welcome to Vue JS'
+    };
+  }
+});
+
+app.mount("#app");
+
+
+Class 02 :
+=====================================
+# index.html 
+ <div class="data">{{ msg }}</div>
+ 
+# app.js
+ --------------------
+let data = Vue.createApp({
+  data() {
+    return {
+      name : 'Alamin',
+      age : 22,
+      city : 'Phulbari'
+    }
+  }
+});
+
+data.mount('.data')
+
+
+Class 03 :
+======================
+
+# Using the Global Build
+
+const { createApp } = Vue 
+createApp({
+  data() {
+    return {
+      message : 'Hello Vue!'
+    }
+  }
+}).mount('#app')

@@ -1,0 +1,12 @@
+# Laravel 9 Install :
+composer create-project --prefer-dist laravel/laravel `project-name` "9.*"
+composer create-project laravel/laravel:^9.0 `project-name`
+
+# Laravel 10 Install :
+composer create-project laravel/laravel:^10.0 `project-name`
+
+# Laravel 11 Install : 
+composer create-project laravel/laravel `project-name`
+
+# Laravel Install in exist directory :
+composer create-project laravel/laravel ./
