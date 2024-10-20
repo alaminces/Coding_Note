@@ -1,0 +1,5 @@
+# To open code editor 
+code .
+
+# To show terminal in vs code
+ctrl + shift + `

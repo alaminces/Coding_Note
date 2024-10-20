@@ -1,0 +1,18 @@
++========================================+
+# Multi Language / Localization in Laravel 
++========================================+
+
+Step 01 : create middleware : localization 
+
+Step 02 : register middleware in web
+
+Step 03 : setup middleware 
+use Session;
+use App;
+if( Session::has('locale') ) {
+    App::setLocale( Session::get('locale') );
+}
+return $next($request);
+
+Step 04 : setup route
+
